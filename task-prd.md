@@ -5,7 +5,7 @@
 ### Project Setup
 - [x] Initialize Next.js project with TypeScript
 - [x] Set up FastAPI backend with Python
-- [ ] Configure development environment (Docker, dev scripts)
+- [x] Configure development environment (Docker, dev scripts)
 - [x] Set up PostgreSQL database
 - [x] Create basic project structure and folders
 - [ ] Set up version control and CI/CD pipeline
@@ -17,8 +17,8 @@
 - [x] Create JWT token authentication system
 - [x] Build user registration frontend form
 - [x] Build login/logout frontend pages
-- [ ] Implement password reset functionality
-- [ ] Add user profile management
+- [x] Implement password reset functionality
+- [x] Add user profile management
 - [x] Create user roles system (Admin, Team Lead, Developer)
 
 ### Project Management
@@ -27,7 +27,7 @@
 - [x] Build project creation frontend
 - [x] Build project listing/dashboard page
 - [x] Implement project member invitation system
-- [ ] Add project settings management
+- [x] Add project settings management
 - [x] Create project permissions system
 
 ## Phase 2: Core Ticket System (Weeks 1-2 continued)

@@ -4,7 +4,7 @@ from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 from typing import List
 from .database import engine, Base
-from .routers import authentication, projects, tickets, boards
+from .routers import authentication, projects, tickets, boards, password_reset, profile, invitations, settings
 
 # Create all database tables
 Base.metadata.create_all(bind=engine)
@@ -65,6 +65,10 @@ app.include_router(authentication.router, prefix="/api", tags=["Authentication"]
 app.include_router(projects.router, prefix="/api", tags=["Projects"])
 app.include_router(tickets.router, prefix="/api", tags=["Tickets"])
 app.include_router(boards.router, prefix="/api", tags=["Boards"])
+app.include_router(password_reset.router, prefix="/api", tags=["Password Reset"])
+app.include_router(profile.router, prefix="/api", tags=["Profile"])
+app.include_router(invitations.router, prefix="/api", tags=["Invitations"])
+app.include_router(settings.router, prefix="/api", tags=["Settings"])
 
 @app.get("/api/health", tags=["Health"])
 async def health_check():

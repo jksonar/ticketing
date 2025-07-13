@@ -156,3 +156,27 @@ class Token(BaseModel):
 
 class TokenData(BaseModel):
     username: Optional[str] = None
+
+# Password Reset Schemas
+class UserEmail(BaseModel):
+    email: str
+
+class PasswordReset(BaseModel):
+    token: str
+    new_password: str
+
+# Invitation Schemas
+class InvitationBase(BaseModel):
+    email: str
+    project_id: int
+
+class InvitationCreate(InvitationBase):
+    pass
+
+class Invitation(InvitationBase):
+    id: int
+    token: str
+    expires_at: datetime
+
+    class Config:
+        orm_mode = True

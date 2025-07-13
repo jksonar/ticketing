@@ -104,3 +104,15 @@ class TicketHistory(Base):
 
     ticket = relationship("Ticket", back_populates="history")
     changed_by = relationship("User")
+
+class Invitation(Base):
+    __tablename__ = "invitations"
+
+    id = Column(Integer, primary_key=True, index=True)
+    email = Column(String, nullable=False)
+    project_id = Column(Integer, ForeignKey("projects.id"), nullable=False)
+    token = Column(String, nullable=False, unique=True)
+    expires_at = Column(DateTime(timezone=True), nullable=False)
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
+
+    project = relationship("Project")
