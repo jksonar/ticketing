@@ -1,15 +1,66 @@
-# Jira Clone
+# Jira Clone - Modern Project Management Tool
 
-This is a Jira-like ticketing system built with a FastAPI backend and a Next.js frontend. It is designed to be a flexible and extensible platform for managing projects, tracking issues, and collaborating with your team.
+## Overview
+A modern, developer-focused ticket tracking and agile board system for software teams, built as a lightweight, open alternative to Jira Cloud using Next.js and FastAPI.
 
-## Features
+## 🚀 Quick Start
 
-- **User Authentication:** Register, login, and manage user accounts with JWT-based authentication.
-- **Project Management:** Create, read, update, and delete projects, and manage project members.
-- **Ticket Tracking:** Create, read, update, and delete tickets, and track their status, priority, and history.
-- **Comments and Collaboration:** Add comments to tickets to facilitate team communication.
-- **Search and Filtering:** Search for tickets by keyword and filter by status, priority, and assignee.
-- **Role-Based Access Control:** Assign roles to users (Admin, Team Lead, Developer) to control access to features.
+```bash
+# Clone the repository
+git clone <your-repo-url>
+cd ticketing
+
+# Copy environment files
+cp backend/.env.example backend/.env
+cp frontend/.env.example frontend/.env.local
+
+# Start with Docker
+docker-compose up -d
+
+# Access the application
+# Frontend: http://localhost:3000
+# Backend API: http://localhost:8000
+# API Docs: http://localhost:8000/docs
+```
+
+## 🛠️ Tech Stack
+- **Frontend**: Next.js 14 with TypeScript, Tailwind CSS, Radix UI
+- **Backend**: FastAPI with Python 3.11+, SQLAlchemy, Alembic
+- **Database**: PostgreSQL 15
+- **Cache/Real-time**: Redis, WebSockets
+- **Authentication**: JWT tokens with bcrypt
+- **File Storage**: Local/S3 compatible
+- **Containerization**: Docker & Docker Compose
+- **Testing**: Jest, Pytest, Playwright
+
+## ✨ Features
+
+### ✅ Implemented (MVP)
+- User authentication & authorization (JWT)
+- Project management with member invitations
+- Ticket/Issue management with custom fields
+- Kanban board with drag & drop functionality
+- Comments system with real-time updates
+- WebSocket integration for live collaboration
+- User roles (Admin, Team Lead, Developer)
+- Responsive design with dark/light theme
+- API documentation with Swagger/ReDoc
+
+### 🔄 In Progress
+- File attachments system
+- Advanced search & filtering
+- Email notifications
+- Real-time notifications
+- Board permissions and templates
+
+### 📋 Roadmap (Advanced Features)
+- AI-powered task estimation
+- Advanced analytics dashboard
+- Mobile PWA with offline support
+- SSO integration (SAML, OAuth)
+- Advanced workflow automation
+- Plugin marketplace
+- Enterprise security features
 
 ## Getting Started
 
