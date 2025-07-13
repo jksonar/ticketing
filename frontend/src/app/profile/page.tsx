@@ -1,7 +1,13 @@
 import { useState, useEffect } from 'react';
 
+interface User {
+  id: number;
+  username: string;
+  email: string;
+}
+
 export default function ProfilePage() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState<User | null>(null);
   const [message, setMessage] = useState('');
 
   useEffect(() => {

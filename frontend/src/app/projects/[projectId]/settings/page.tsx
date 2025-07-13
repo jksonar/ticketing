@@ -1,8 +1,14 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
 
+interface Project {
+  id: number;
+  name: string;
+  description: string;
+}
+
 export default function ProjectSettingsPage() {
-  const [project, setProject] = useState(null);
+  const [project, setProject] = useState<Project | null>(null);
   const [message, setMessage] = useState('');
   const params = useParams();
   const { projectId } = params;

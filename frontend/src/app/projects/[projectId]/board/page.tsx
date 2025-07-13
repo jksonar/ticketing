@@ -39,6 +39,7 @@ export default function BoardPage() {
     socket.on('ticket_update', (updatedTicket) => {
       // Update the board state with the new ticket data
       setBoard((prevBoard) => {
+        if (!prevBoard) return prevBoard;
         const newColumns = prevBoard.columns.map((column) => {
           const newTickets = column.tickets.map((ticket) => {
             if (ticket.id === updatedTicket.id) {
@@ -48,7 +49,7 @@ export default function BoardPage() {
           });
           return { ...column, tickets: newTickets };
         });
-        return { ...prevBoard, columns: newColumns };
+        return { ...prevBoard, columns: newColumns } as Board;
       });
     });
 
@@ -79,6 +80,7 @@ export default function BoardPage() {
 
   return (
     <DragDropContext onDragEnd={onDragEnd}>
+      <></>
       {/* ... (board rendering logic) */}
     </DragDropContext>
   );
