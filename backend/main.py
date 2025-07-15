@@ -4,7 +4,7 @@ from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 from typing import List
 from .database import engine, Base
-from .routers import authentication, projects, tickets, boards, password_reset, profile, invitations, settings
+from backend.routers import authentication, projects, tickets, boards, password_reset, profile, invitations, settings
 
 # Create all database tables
 Base.metadata.create_all(bind=engine)

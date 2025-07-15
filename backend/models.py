@@ -46,9 +46,9 @@ class Board(Base):
     updated_at = Column(DateTime(timezone=True), onupdate=func.now())
 
     project = relationship("Project", back_populates="boards")
-    columns = relationship("Column", back_populates="board", cascade="all, delete-orphan")
+    columns = relationship("BoardColumn", back_populates="board", cascade="all, delete-orphan")
 
-class Column(Base):
+class BoardColumn(Base):
     __tablename__ = "columns"
 
     id = Column(Integer, primary_key=True, index=True)
@@ -74,7 +74,7 @@ class Ticket(Base):
     updated_at = Column(DateTime(timezone=True), onupdate=func.now())
 
     owner = relationship("User", back_populates="tickets")
-    column = relationship("Column", back_populates="tickets")
+    column = relationship("BoardColumn", back_populates="tickets")
     comments = relationship("Comment", back_populates="ticket", cascade="all, delete-orphan")
     history = relationship("TicketHistory", back_populates="ticket", cascade="all, delete-orphan")
 

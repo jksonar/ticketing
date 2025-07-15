@@ -5,11 +5,12 @@ FROM python:3.9-slim
 WORKDIR /app
 
 # Install dependencies
-COPY ./requirements.txt /app/
+RUN apt-get update && apt-get install -y curl vim net-tools
+COPY backend/requirements.txt /app/
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the rest of the application's code
-COPY . /app/
+COPY ./backend /app/
 
 # Command to run the application
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
