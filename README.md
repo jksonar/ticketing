@@ -105,8 +105,33 @@ docker-compose up -d
    ALGORITHM=HS256
    ACCESS_TOKEN_EXPIRE_MINUTES=30
    ```
+   **Note**: If you are using SQLite (e.g., for local development), you can set `DATABASE_URL=sqlite:///./test.db`.
 
-2. **Create a PostgreSQL database** named `jira_clone`.
+2. **Create a PostgreSQL database** named `jira_clone` (if using PostgreSQL).
+
+### Database Initialization
+
+After setting up your `.env` file and creating the database, you need to initialize the database tables using Alembic migrations.
+
+1.  **Activate the backend virtual environment:**
+    ```bash
+    # On Windows
+    .\backend\venv\Scripts\activate
+
+    # On macOS/Linux
+    source backend/venv/bin/activate
+    ```
+
+2.  **Generate the initial migration script:**
+    ```bash
+    alembic revision --autogenerate -m "Create initial tables"
+    ```
+    This command will create a new migration file in `backend/alembic/versions/`.
+
+3.  **Apply the migrations to create the database tables:**
+    ```bash
+    alembic upgrade head
+    ```
 
 ### Running the Application
 
