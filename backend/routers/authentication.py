@@ -1,8 +1,8 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordRequestForm
 from sqlalchemy.orm import Session
-from .. import models, schemas, security
-from ..database import get_db
+from backend import models, schemas, security
+from backend.database import get_db
 from passlib.context import CryptContext
 
 router = APIRouter()

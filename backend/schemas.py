@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 from typing import List, Optional
 from datetime import datetime
 
@@ -22,8 +22,7 @@ class User(UserBase):
     created_at: datetime
     updated_at: Optional[datetime] = None
 
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
 # Project Schemas
 class ProjectBase(BaseModel):
@@ -43,8 +42,7 @@ class Project(ProjectBase):
     updated_at: Optional[datetime] = None
     users: List[User] = []
 
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
 # Board Schemas
 class BoardBase(BaseModel):
@@ -62,8 +60,7 @@ class Board(BoardBase):
     created_at: datetime
     updated_at: Optional[datetime] = None
 
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
 # Column Schemas
 class ColumnBase(BaseModel):
@@ -79,8 +76,7 @@ class Column(ColumnBase):
     id: int
     board_id: int
 
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
 # Ticket Schemas
 class TicketBase(BaseModel):
@@ -107,8 +103,7 @@ class Ticket(TicketBase):
     created_at: datetime
     updated_at: Optional[datetime] = None
 
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
 # Comment Schemas
 class CommentBase(BaseModel):
@@ -127,8 +122,7 @@ class Comment(CommentBase):
     created_at: datetime
     updated_at: Optional[datetime] = None
 
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
 # Ticket History Schemas
 class TicketHistoryBase(BaseModel):
@@ -146,8 +140,7 @@ class TicketHistory(TicketHistoryBase):
     changed_by_id: int
     changed_at: datetime
 
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
 # Token Schemas
 class Token(BaseModel):
@@ -178,5 +171,4 @@ class Invitation(InvitationBase):
     token: str
     expires_at: datetime
 
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
